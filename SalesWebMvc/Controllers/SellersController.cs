@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Data;
+using SalesWebMvc.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +12,16 @@ namespace SalesWebMvc.Controllers
     public class SellersController : Controller
     {
 
-        private readonly SalesWebMvcContext _context;
+        private readonly SellerService _sellerService;
 
-        public SellersController(SalesWebMvcContext context)
+        public SellersController(SellerService sellerService)
         {
-            _context = context;
+            _sellerService = sellerService;
         }
 
-        public async  Task<IActionResult > Index()
+        public IActionResult Index()
         {
-            return View(await _context.Seller.ToListAsync());
+            return View(_sellerService.FindAll());
         }
     }
 }
