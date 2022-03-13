@@ -21,5 +21,10 @@ namespace SalesWebMvc.Services
             return _context.Department.OrderBy(x => x.Name).ToList();
         }
 
+        public Department FindById(int id)
+        {
+            return _context.Department.FirstOrDefault(x => x.Id == id);
+        }
+
     }
 }
