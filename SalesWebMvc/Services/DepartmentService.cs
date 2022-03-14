@@ -16,7 +16,7 @@ namespace SalesWebMvc.Services
             _context = context;
         }
 
-        public IList<Department> FindAll()
+        public List<Department> FindAll()
         {
             return _context.Department.OrderBy(x => x.Name).ToList();
         }
