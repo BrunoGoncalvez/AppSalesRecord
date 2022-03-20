@@ -7,7 +7,7 @@ namespace SalesWebMvc.Models
 {
     public class Seller
     {
-
+        [DisplayFormat(DataFormatString = "{0:00}")]
         public int Id { get; set; }        
 
         [Required(ErrorMessage = "{0} required")]
